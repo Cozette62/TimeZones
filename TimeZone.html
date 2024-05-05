@@ -20,7 +20,7 @@
       function currentDate(event) {
         let currentTime = moment()
           .tz(event.target.value)
-          .format("dddd, MMMM Do, YYYY h:m A");
+          .format("dddd, MMMM Do, YYYY h:mm A");
         alert(`It is ${currentTime} in ${event.target.value}`);
       }
       let citySelect = document.querySelector("#cities");
