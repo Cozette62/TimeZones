@@ -1,56 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.30.1/moment.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.45/moment-timezone-with-data-1970-2030.min.js"></script>
-    <title>Time Zones</title>
-</head>
-<body>
-   <form action="/submit"></form>
-   <select name id="cities">
-<option value="">Select a city</option>
-<option value="cancun">Cancun</option>
-<option value="paris">Paris</option>
-<option value="newYork">New York</option>
-   </select>
-<div id="today"></div>
-<div id="cancun"></div>
-<div id="paris"></div>
-<div id="new-york"></div>
-
-<script>
-function showSelectedCity(event){
-    if (event.target.value.length > 0){
-        alert(event.target.value);
-    }
-}
-function showCancunTime(event){
-    {if (event.target.value === cancun)
-    alert("It is currently ${cancunTime} in Cancun, Mexico.");
-    }
-}
-let citiesSelect=document.querySelector("#cities");
-citiesSelect.addEventListener("change", showSelectedCity);
-
-let cancunTime = moment().tz("America/Cancun").format("dddd, MMMM D, YYYY H:mm A");
-let cancunElement = document.querySelector("#cancun")
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.37/moment-timezone-with-data-1970-2030.js"></script>
+    <title>TZ homework</title>
+  </head>
+  <body>
+    <label for="cities">Choose a city</label>
+    <select id="cities">
+      <option value="">Select a city</option>
+      <option value="Europe/Paris">Paris</option>
+      <option value="Asia/Tokyo">Tokyo</option>
+      <option value="Australia/Sydney">Sydney</option>
+    </select>
+    <script>
+      function currentDate(event) {
+        let currentTime = moment()
+          .tz(event.target.value)
+          .format("dddd, MMMM Do, YYYY h:m A");
+        alert(`It is ${currentTime} in ${event.target.value}`);
+      }
+      let citySelect = document.querySelector("#cities");
+      citySelect.addEventListener("change", currentDate);
+    </script>
+  </body>
+</html>
 
 
-
-    let parisTime = moment().tz("Europe/Paris").format("dddd, MMMM D, YYYY H:mm A");
-    let newYorkTime = moment().tz("America/New_York").format("dddd, MMMM D, YYYY H:mm A");
-
-
-
-
-
-</script>
-<script>
+    
  
 
-    }
+    
 
 
 
@@ -58,6 +41,11 @@ let cancunElement = document.querySelector("#cancun")
      
      
     
+
+     
     
-    </script>
-    </html>
+    
+
+
+
+
